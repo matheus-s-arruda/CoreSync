@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SVDDEN DEATH - Rise.mp3-aa4927847d2eab7103fb1c257951001b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/SVDDEN DEATH - Rise.mp3"
+dest_files=[ "res://.import/SVDDEN DEATH - Rise.mp3-aa4927847d2eab7103fb1c257951001b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

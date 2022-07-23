@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+var rhythms : Array
+
+onready var animation = $AnimationPlayer
+
+
+func _ready():
+	rhythms.append(Rhythm.new(animation, {\"play\" : [\"right\"]}, 8, 4))
+	rhythms.append(Rhythm.new(animation, {\"play\" : [\"left\"]}, 8))
+"
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Bone2D/Bone2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -31 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Bone2D/Bone2D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4, -28 ), Vector2( -22, -44 ), Vector2( -21.2187, -43.6851 ), Vector2( 0, -31 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Bone2D/Bone2D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -4, -28 ), Vector2( 22, -44 ), Vector2( 22, -44 ), Vector2( 0, -31 ) ]
+}
+
+[node name="dancer" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -32, -64 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 0, 0, 0, 64, 64, 64, 64, 0, 0, 32, 64, 32, 32, 0, 32, 32, 32, 64 )
+uv = PoolVector2Array( 0, 0, 0, 64, 64, 64, 64, 0, 0, 32, 64, 32, 32, 0, 32, 32, 32, 64 )
+polygons = [ PoolIntArray( 0, 6, 7, 4 ), PoolIntArray( 6, 3, 5, 7 ), PoolIntArray( 7, 8, 2, 5 ), PoolIntArray( 4, 1, 8, 7 ) ]
+bones = [ "Bone2D", PoolRealArray( 0, 1, 1, 0, 0.5, 0.5, 0, 0.5, 1 ), "Bone2D/Bone2D2", PoolRealArray( 1, 0, 0, 1, 0.5, 0.5, 1, 0.5, 0 ) ]
+internal_vertex_count = 5
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Bone2D" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Bone2D2" type="Bone2D" parent="Skeleton2D/Bone2D"]
+position = Vector2( 0, -31 )
+rotation = -1.57079
+rest = Transform2D( 2.22127e-06, -1, 1, 2.22127e-06, 0, -32 )
+default_length = 32.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/left = SubResource( 4 )
+anims/right = SubResource( 2 )

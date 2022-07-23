@@ -1,0 +1,425 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://addons/core_sync/dock/edit_event.gd" type="Script" id=1]
+[ext_resource path="res://addons/core_sync/dock/dock.gd" type="Script" id=2]
+[ext_resource path="res://addons/core_sync/dock/rows.gd" type="Script" id=3]
+[ext_resource path="res://addons/core_sync/dock/dock_pattern.gd" type="Script" id=4]
+[ext_resource path="res://addons/core_sync/dock/dock_timeline.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0.14902, 0.172549, 0.231373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.239216, 0.270588, 0.34902, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=30]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0.219608, 0.266667, 0.368627, 1 )
+
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0.14902, 0.172549, 0.231373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+content_margin_left = 4.0
+bg_color = Color( 0.165558, 0.192528, 0.273438, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color( 0.219608, 0.266667, 0.368627, 1 )
+border_width_left = 2
+border_color = Color( 0.407843, 0.611765, 0.909804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.12549, 0.141176, 0.192157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.909804, 0.407843, 0.407843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.175244, 0.197022, 0.262354, 1 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.14902, 0.172549, 0.231373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 6.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.14902, 0.172549, 0.231373, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.254902, 0.368627, 0.54902, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=29]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color( 0.2, 0.227451, 0.309804, 1 )
+
+[node name="dock" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="timeline" type="HBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 5 )
+
+[node name="row_edit" type="PanelContainer" parent="timeline"]
+margin_right = 160.0
+margin_bottom = 298.0
+custom_styles/panel = SubResource( 31 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="timeline/row_edit"]
+margin_right = 160.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 160, 112 )
+scroll_horizontal_enabled = false
+
+[node name="row_edit" type="VBoxContainer" parent="timeline/row_edit/ScrollContainer"]
+margin_right = 160.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="create" type="Button" parent="timeline/row_edit/ScrollContainer/row_edit"]
+margin_right = 160.0
+margin_bottom = 22.0
+custom_styles/hover = SubResource( 26 )
+custom_styles/pressed = SubResource( 26 )
+custom_styles/focus = SubResource( 26 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 26 )
+disabled = true
+text = "create pattern"
+
+[node name="body" type="VBoxContainer" parent="timeline/row_edit/ScrollContainer/row_edit"]
+margin_top = 26.0
+margin_right = 160.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="timeline"]
+margin_left = 164.0
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="timeline/VBoxContainer"]
+margin_right = 860.0
+margin_bottom = 18.0
+size_flags_vertical = 5
+custom_styles/normal = SubResource( 30 )
+text = "timeline"
+align = 1
+
+[node name="time_edit" type="PanelContainer" parent="timeline/VBoxContainer"]
+margin_top = 22.0
+margin_right = 860.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 32 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="timeline/VBoxContainer/time_edit"]
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 839.0
+margin_bottom = 97.0
+scroll_vertical_enabled = false
+
+[node name="PanelContainer" type="PanelContainer" parent="timeline/VBoxContainer/time_edit/ScrollContainer"]
+margin_right = 832.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="timeline/VBoxContainer/time_edit/ScrollContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 825.0
+margin_bottom = 83.0
+
+[node name="Button" type="Button" parent="timeline/VBoxContainer/time_edit/ScrollContainer/PanelContainer/HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 76.0
+text = "pattern"
+
+[node name="pattern" type="HBoxContainer" parent="."]
+margin_top = 302.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )
+
+[node name="rows" type="VBoxContainer" parent="pattern"]
+margin_right = 1024.0
+margin_bottom = 298.0
+size_flags_horizontal = 3
+script = ExtResource( 3 )
+
+[node name="top" type="HBoxContainer" parent="pattern/rows"]
+margin_right = 1024.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="name" type="Label" parent="pattern/rows/top"]
+margin_right = 338.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 5
+custom_styles/normal = SubResource( 24 )
+valign = 1
+
+[node name="beats" type="HBoxContainer" parent="pattern/rows/top"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="add_rhytm" type="Button" parent="pattern/rows/top/beats"]
+margin_left = 57.0
+margin_right = 137.0
+margin_bottom = 20.0
+focus_mode = 0
+disabled = true
+text = "add Rhytm"
+
+[node name="Label" type="Label" parent="pattern/rows/top/beats"]
+margin_left = 141.0
+margin_right = 185.0
+margin_bottom = 20.0
+size_flags_vertical = 5
+custom_styles/normal = SubResource( 14 )
+text = "beat"
+align = 1
+valign = 1
+
+[node name="beat_1" type="Button" parent="pattern/rows/top/beats"]
+margin_left = 189.0
+margin_right = 209.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 16 )
+focus_mode = 0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 27 )
+custom_styles/normal = SubResource( 15 )
+disabled = true
+toggle_mode = true
+
+[node name="beat_2" type="Button" parent="pattern/rows/top/beats"]
+margin_left = 213.0
+margin_right = 233.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 16 )
+focus_mode = 0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 27 )
+custom_styles/normal = SubResource( 15 )
+disabled = true
+toggle_mode = true
+
+[node name="beat_3" type="Button" parent="pattern/rows/top/beats"]
+margin_left = 237.0
+margin_right = 257.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 16 )
+focus_mode = 0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 27 )
+custom_styles/normal = SubResource( 15 )
+disabled = true
+toggle_mode = true
+
+[node name="beat_4" type="Button" parent="pattern/rows/top/beats"]
+margin_left = 261.0
+margin_right = 281.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 16 )
+focus_mode = 0
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 16 )
+custom_styles/focus = SubResource( 15 )
+custom_styles/disabled = SubResource( 27 )
+custom_styles/normal = SubResource( 15 )
+disabled = true
+toggle_mode = true
+
+[node name="Control" type="Control" parent="pattern/rows/top"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="pattern/rows"]
+visible = false
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 0, 80 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 25 )
+
+[node name="MarginContainer" type="MarginContainer" parent="pattern/rows/PanelContainer"]
+margin_right = 1024.0
+margin_bottom = 274.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="beat_1" type="ScrollContainer" parent="pattern/rows/PanelContainer/MarginContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="body" type="VBoxContainer" parent="pattern/rows/PanelContainer/MarginContainer/beat_1"]
+margin_right = 1016.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="beat_2" type="ScrollContainer" parent="pattern/rows/PanelContainer/MarginContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="body" type="VBoxContainer" parent="pattern/rows/PanelContainer/MarginContainer/beat_2"]
+margin_right = 1016.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="beat_3" type="ScrollContainer" parent="pattern/rows/PanelContainer/MarginContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="body" type="VBoxContainer" parent="pattern/rows/PanelContainer/MarginContainer/beat_3"]
+margin_right = 1016.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="beat_4" type="ScrollContainer" parent="pattern/rows/PanelContainer/MarginContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="body" type="VBoxContainer" parent="pattern/rows/PanelContainer/MarginContainer/beat_4"]
+margin_right = 1016.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="edit_event" type="PanelContainer" parent="pattern"]
+visible = false
+margin_left = 794.0
+margin_right = 1024.0
+margin_bottom = 184.0
+custom_styles/panel = SubResource( 28 )
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pattern/edit_event"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 224.0
+margin_bottom = 180.0
+custom_constants/separation = 4
+
+[node name="Panel" type="PanelContainer" parent="pattern/edit_event/VBoxContainer"]
+margin_right = 218.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 29 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="pattern/edit_event/VBoxContainer/Panel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 214.0
+margin_bottom = 24.0
+
+[node name="add_event" type="Button" parent="pattern/edit_event/VBoxContainer/Panel/HBoxContainer"]
+margin_right = 160.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 160, 0 )
+text = "add event"
+
+[node name="close" type="Button" parent="pattern/edit_event/VBoxContainer/Panel/HBoxContainer"]
+margin_left = 164.0
+margin_right = 210.0
+margin_bottom = 20.0
+text = "close"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="pattern/edit_event/VBoxContainer"]
+margin_top = 32.0
+margin_right = 218.0
+margin_bottom = 174.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="body" type="VBoxContainer" parent="pattern/edit_event/VBoxContainer/ScrollContainer"]
+margin_right = 218.0
+margin_bottom = 142.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="timeline/row_edit/ScrollContainer/row_edit/create" to="timeline" method="_on_create_pattern_pressed"]
+[connection signal="pressed" from="pattern/rows/top/beats/add_rhytm" to="pattern/rows" method="_on_add_rhytm_pressed"]
+[connection signal="pressed" from="pattern/rows/top/beats/beat_1" to="pattern/rows" method="_on_beat_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="pattern/rows/top/beats/beat_2" to="pattern/rows" method="_on_beat_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="pattern/rows/top/beats/beat_3" to="pattern/rows" method="_on_beat_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="pattern/rows/top/beats/beat_4" to="pattern/rows" method="_on_beat_pressed" binds= [ 3 ]]
+[connection signal="pressed" from="pattern/edit_event/VBoxContainer/Panel/HBoxContainer/add_event" to="pattern/edit_event" method="_on_add_event_pressed"]
+[connection signal="pressed" from="pattern/edit_event/VBoxContainer/Panel/HBoxContainer/close" to="pattern/edit_event" method="_on_close_pressed"]
