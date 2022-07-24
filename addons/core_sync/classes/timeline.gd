@@ -1,38 +1,27 @@
 tool
-class_name Timeline extends Node
+extends Node
 
 
-var patterns : Array setget _update_patterns
+export(Array, NodePath) var track : Array
+
 var pointer_pattern := -1
+var pattern_size := 0
+var patterns : Array
 
 
 func _init():
 	CoreSync.connect("pattern", self, "syncro")
 
 
+func _ready():
+	for path in track:
+		patterns.append( get_node(path) )
+		pattern_size += 1
+
+
 func syncro(_pattern):
-	if pointer_pattern >= 0: 
-		patterns[pointer_pattern].is_active = false
-	
-	pointer_pattern += 1
-	if patterns.size() >= pointer_pattern:
-		 pointer_pattern = 0
-	
+	pointer_pattern = (pointer_pattern + 1) % pattern_size
+	patterns[pointer_pattern - 1].is_active = false
 	patterns[pointer_pattern].is_active = true
 
 
-func _update_patterns(new_array: Array):
-	var new_element = patterns.size() < new_array.size()
-	patterns = new_array
-	
-	if new_element:
-		patterns[-1] = Pattern.new()
-
-
-func _get_property_list():
-	return [
-		{
-			"name" : "patterns",
-			"type" : TYPE_ARRAY,
-		},
-	]

@@ -8,40 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Node",
-"class": "Constants",
-"language": "GDScript",
-"path": "res://scripts/classes/constants.gd"
-}, {
-"base": "Resource",
-"class": "Pattern",
-"language": "GDScript",
-"path": "res://addons/core_sync/classes/pattern.gd"
-}, {
-"base": "Resource",
-"class": "Rhythm",
-"language": "GDScript",
-"path": "res://addons/core_sync/classes/rhythm.gd"
-}, {
-"base": "Resource",
-"class": "RhythmCall",
-"language": "GDScript",
-"path": "res://addons/core_sync/classes/rhythm_call.gd"
-}, {
-"base": "Node",
-"class": "Timeline",
-"language": "GDScript",
-"path": "res://addons/core_sync/classes/timeline.gd"
-} ]
-_global_script_class_icons={
-"Constants": "",
-"Pattern": "",
-"Rhythm": "",
-"RhythmCall": "",
-"Timeline": ""
-}
-
 [application]
 
 config/name="audio sync core"
@@ -50,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-CoreSync="*res://scripts/classes/core_sync.gd"
+CoreSync="*res://addons/core_sync/classes/autoload.gd"
 
 [editor_plugins]
 

@@ -4,7 +4,7 @@ signal step(step)
 signal beat(beat)
 signal pattern(pattern)
 
-const BPM := 128
+const BPM := 204
 const BPM_MS := float(60_000) / float(BPM) / 4
 const MAX_STEP = 15 # 16 steps, de 0 a 15
 
@@ -23,9 +23,9 @@ func _ready():
 func _process(_delta):
 	var t = OS.get_ticks_msec() - _time_fit
 	var _tick = int( float(t) / BPM_MS)
+	
 	if _tick != tick:
 		tick = _tick
-		
 		step = step + 1 if step < MAX_STEP else 0
 		
 		if not step:
@@ -33,8 +33,8 @@ func _process(_delta):
 			
 			if not beat:
 				pattern = pattern + 1 if pattern < 3 else 0
+				
 				emit_signal("pattern", pattern)
-			
 			emit_signal("beat", beat)
 		emit_signal("step", step)
 
@@ -45,8 +45,5 @@ func _update_core(value : bool):
 	if active:
 		step = -1
 		beat = -1
-		_time_fit = OS.get_ticks_msec()
-
-
-
-
+		pattern = -1
+		_time_fit = OS.get_ticks_msec() - AudioServer.get_time_to_next_mix()

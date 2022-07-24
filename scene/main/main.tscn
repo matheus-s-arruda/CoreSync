@@ -1,52 +1,8 @@
-[gd_scene load_steps=5 format=2]
-
-[ext_resource path="res://scripts/main/main.gd" type="Script" id=1]
-[ext_resource path="res://addons/core_sync/classes/rhythm.gd" type="Script" id=2]
-[ext_resource path="res://assets/audio/Valentino Khan - Pump (Official Audio).mp3" type="AudioStream" id=5]
-
-[sub_resource type="Resource" id=1]
-resource_local_to_scene = true
-script = ExtResource( 2 )
-calls = [  ]
-row = [ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false ]
-self_name = ""
-is_active = false
+[gd_scene format=2]
 
 [node name="Control" type="Control" groups=["step0", "step12", "step4", "step8"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-rhythm = SubResource( 1 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 182.0
-margin_top = 235.0
-margin_right = 222.0
-margin_bottom = 249.0
-rect_scale = Vector2( 2, 2 )
-
-[node name="Label2" type="Label" parent="."]
-margin_left = 183.0
-margin_top = 299.0
-margin_right = 223.0
-margin_bottom = 313.0
-rect_scale = Vector2( 2, 2 )
-
-[node name="Label3" type="Label" parent="."]
-margin_left = 183.0
-margin_top = 353.0
-margin_right = 223.0
-margin_bottom = 367.0
-rect_scale = Vector2( 2, 2 )
-
-[node name="Button" type="Button" parent="."]
-margin_left = 297.0
-margin_top = 419.0
-margin_right = 448.0
-margin_bottom = 483.0
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-volume_db = -7.899
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+__meta__ = {
+"_edit_lock_": true
+}

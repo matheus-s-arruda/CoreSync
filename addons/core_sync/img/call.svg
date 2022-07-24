@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333332 4.2333333"
+   version="1.1"
+   id="svg253"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   sodipodi:docname="call.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview255"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="25.40905"
+     inkscape:cx="5.7656623"
+     inkscape:cy="8.1467037"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs250">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect15078"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.80675396,0.05727126"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect15076"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.014201184"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect15069"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0.85906125,0.05727126"
+       not_jump="true"
+       sort_points="true"
+       interpolator_type="CentripetalCatmullRom"
+       interpolator_beta="0.75"
+       start_linecap_type="round"
+       linejoin_type="spiro"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="round" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect15067"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.014201184"
+       smooth_angles="0"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false"
+       step="1" />
+  </defs>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g17298"
+       transform="matrix(1.2722871,0,0,1.2722871,-0.57643083,-0.52307028)">
+      <path
+         style="fill:#1479c7;fill-opacity:1;stroke:none;stroke-width:0.0317897;stroke-linecap:round;stroke-linejoin:round"
+         d="M 0.77092487,0.77089916 V 3.4624341 c 0,0 2.70958603,-1.2811657 2.69153503,-1.3457674 C 3.4444085,2.052065 0.77092487,0.77089916 0.77092487,0.77089916 Z"
+         id="path14022"
+         sodipodi:nodetypes="ccsc" />
+      <ellipse
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.044991;stroke-linecap:round;stroke-linejoin:round"
+         id="path15001"
+         cx="1.6927184"
+         cy="2.1467834"
+         rx="0.32821405"
+         ry="0.34756702" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.0364587;stroke-linecap:round;stroke-linejoin:round"
+         d="m 2.0163942,2.1222994 c 0,0 -0.2069075,-1.0909826 0.071315,-1.21885777 L 2.5958769,0.68715916 1.9543054,0.81372583 C 1.7529278,1.0472577 1.7690029,2.1782676 1.7690029,2.1782676 Z"
+         id="path15082"
+         sodipodi:nodetypes="cscccc" />
+    </g>
+  </g>
+</svg>

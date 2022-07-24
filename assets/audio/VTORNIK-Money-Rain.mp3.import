@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/VTORNIK-Money-Rain.mp3-eb1ced84b0f8d9ca10bd86f39fd789f8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/VTORNIK-Money-Rain.mp3"
+dest_files=[ "res://.import/VTORNIK-Money-Rain.mp3-eb1ced84b0f8d9ca10bd86f39fd789f8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
