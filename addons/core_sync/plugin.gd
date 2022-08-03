@@ -13,8 +13,14 @@ const RHYTM_ICON = preload("res://addons/core_sync/img/rhytm.svg")
 const EVENT = preload("res://addons/core_sync/classes/event.gd")
 const EVENT_ICON = preload("res://addons/core_sync/img/call.svg")
 
+const INSPECTOR = preload("res://addons/core_sync/classes/inspector.gd")
+
+var inspector
 
 func _enter_tree():
+	inspector = INSPECTOR.new()
+	add_inspector_plugin(inspector)
+	
 	add_autoload_singleton("CoreSync", "res://addons/core_sync/classes/autoload.gd")
 	add_custom_type("Timeline", "Node", TIMELINE, TIMELINE_ICON)
 	add_custom_type("Pattern", "Node", PATTERN, PATERN_ICON)
@@ -23,6 +29,10 @@ func _enter_tree():
 
 
 func _exit_tree():
+	if inspector:
+		remove_inspector_plugin(inspector)
+		inspector = null
+		
 	remove_autoload_singleton("CoreSync")
 	remove_custom_type("Timeline")
 	remove_custom_type("Pattern")
